@@ -14,22 +14,10 @@ class App extends Component {
     }
   }
 
-  async componentDidMount() {
-      let response = await fetch('https://jsonplaceholder.typicode.com/users')
-      let users = await response.json();
-
-      console.log('turd'); 
-      console.log(users);
-      this.setState({monsters: users});
-
-
-
-      // .then(response => response.json())
-      // .then(users => {
-      //   console.log('turd'); 
-      //   console.log(users);
-      //   this.setState({monsters: users});
-      // })
+  componentDidMount() {
+      fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => this.setState({monsters: users}));
   }
 
   handleChange = e => {
@@ -47,29 +35,7 @@ class App extends Component {
       
       <div className="App">
         <h1>Monsters Rolodex</h1>
-        {/* <input 
-          type='search' 
-          placeholder='search monsters' 
-          // onChange={async(e) => {
-          //   await this.setState({ searchField: e.target.value });
-          //   console.log(this.state);
-          // }}
-          // onChange={e => {
-          //   this.setState({ searchField: e.target.value }, () => 
-          //     console.log(this.state)
-          //   );
-          // }}
-          onChange={e => this.setState({ searchField: e.target.value })}
-        /> */}
-        <SearchBox
-          placeholder='search monsters'
-          handleChange={this.handleChange}
-        />
-                <SearchBox
-          placeholder='fuck you'
-          handleChange={this.handleChange}
-        />
-        <CardList monsters={filteredMonsters}/>
+        <p>Some text</p>
       </div>
     );
   }
