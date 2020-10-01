@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/monsters-rolodex/precache-manifest.3a42cf370077df2e72312ef141826690.js"
+  "/monsters-rolodex/precache-manifest.7f106753b05c48bcf07132de593043f7.js"
 );
 
 self.addEventListener('message', (event) => {
