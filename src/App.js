@@ -14,10 +14,10 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-      fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(users => this.setState({monsters: users}));
+  async componentDidMount() {
+      let response = await fetch('https://jsonplaceholder.typicode.com/users')
+      let users = await response.json();
+      this.setState({monsters: users});
   }
 
   handleChange = e => {
@@ -30,19 +30,14 @@ class App extends Component {
       monster.name.toLowerCase().includes(searchField.toLowerCase())
     );
 
-    return (  
+    return (      
       <div className="App">
         <h1>Monsters Rolodex</h1>
-        <p>v3</p>
-        
         <SearchBox
           placeholder='search monsters'
           handleChange={this.handleChange}
         />
-         
         <CardList monsters={filteredMonsters}/>
-       {/*
-        */}
       </div>
     );
   }
