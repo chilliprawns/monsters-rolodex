@@ -29,7 +29,51 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">React not rendered</div>
+    <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
+    <script>
+
+const Person = props => {
+  return React.createElement("div", {}, [
+  React.createElement("h2", [], props.name),
+  React.createElement("p", [], props.occupation),
+    
+  ])
+}
+
+class AppC extends React.Component {
+  
+  render() {
+    return React.createElement(
+          'div', 
+          {},
+          [ 
+          React.createElement('h1', {}, 'REACT IS RENDERED'),
+          React.createElement(Person, {name:'sharon', occupation:'developer'}),
+          React.createElement(Person, {name:'nicole', occupation:'manager'}),
+          React.createElement(Person, {name:'heather', occupation:'nerd'}),
+        ]
+        )
+  }
+}
+
+      const App = () => {
+
+        return React.createElement(
+          'div', 
+          {},
+          [ 
+          React.createElement('h1', {}, 'REACT IS RENDERED'),
+          React.createElement(Person, {name:'fred', occupation:'developer'}),
+          React.createElement(Person, {name:'bob', occupation:'manager'}),
+          React.createElement(Person, {name:'terry', occupation:'nerd'}),
+      ]
+        )
+      }           
+      
+      ReactDOM.render(React.createElement(AppC), document.getElementById("root"))
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
